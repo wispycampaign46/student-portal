@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>Student Portal</display-name>
+	<!-- <filter> <filter-name>LoggingFilter</filter-name> <filter-class>com.student.portal.filters.LoggingFilter</filter-class> 
+		</filter> <filter-mapping> <filter-name>LoggingFilter</filter-name> <url-pattern>/*</url-pattern> 
+		</filter-mapping> -->
+
+	<listener>
+		<listener-class>com.student.portal.listners.SessionListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.student.portal.listners.RequestListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.student.portal.listners.ContextListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>validationFilter</filter-name>
+		<filter-class>com.student.portal.filters.ValidationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>validationFilter</filter-name>
+		<url-pattern>/RegisterationContorller</url-pattern>
+	</filter-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>PreLoginController</servlet-name>
+		<servlet-class>com.student.portal.controller.PreLoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PreLoginController</servlet-name>
+		<url-pattern>/preLogin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>loginPage</servlet-name>
+		<jsp-file>/jsp/Login.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginPage</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RegisterPage</servlet-name>
+		<jsp-file>/jsp/Register.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterPage</servlet-name>
+		<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>welcomePage</servlet-name>
+		<jsp-file>/jsp/SuccessLogin.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>welcomePage</servlet-name>
+		<url-pattern>/welcome</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+	<servlet>
+		<servlet-name>LoginController</servlet-name>
+		<servlet-class>com.student.portal.controller.LoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginController</servlet-name>
+		<url-pattern>/loginController</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>
+		</description>
+		<display-name>PreRegisterController</display-name>
+		<servlet-name>PreRegisterController</servlet-name>
+		<servlet-class>com.student.portal.controller.PreRegisterController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PreRegisterController</servlet-name>
+		<url-pattern>/preRegister</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>
+		</description>
+		<display-name>PostLoginController</display-name>
+		<servlet-name>PostLoginController</servlet-name>
+		<servlet-class>com.student.portal.controller.PostLoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostLoginController</servlet-name>
+		<url-pattern>/PostLoginController</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>
+		</description>
+		<display-name>PostRegisterationContorller</display-name>
+		<servlet-name>PostRegisterationContorller</servlet-name>
+
+		<servlet-class>com.student.portal.controller.PostRegisterationContorller</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PostRegisterationContorller</servlet-name>
+		<url-pattern>/PostRegisterationContorller</url-pattern>
+	</servlet-mapping>
+
+	<!-- seperatios -->
+
+	<servlet>
+		<description>
+		</description>
+		<display-name>RegisterationContorller</display-name>
+		<servlet-name>RegisterationContorller</servlet-name>
+
+		<servlet-class>com.student.portal.controller.RegisterationController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>RegisterationContorller</servlet-name>
+		<url-pattern>/RegisterationContorller</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- <welcome-file-list> <welcome-file>jsp/Home.jsp</welcome-file> </welcome-file-list> -->
+
+
+
+	<servlet>
+		<servlet-name>Home</servlet-name>
+		<jsp-file>/jsp/Home.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ForgotPasswordController</display-name>
+		<servlet-name>ForgotPasswordController</servlet-name>
+		<servlet-class>com.student.portal.controller.ForgotPasswordController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Home</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ForgotPasswordController</servlet-name>
+		<url-pattern>/ForgotPasswordController</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+<servlet-name>forgotPassword</servlet-name>
+<jsp-file>/jsp/Forgot.jsp</jsp-file>
+</servlet>
+<servlet>
+	<description>
+	</description>
+	<display-name>UpdatePasswordController</display-name>
+	<servlet-name>UpdatePasswordController</servlet-name>
+	<servlet-class>com.student.portal.controller.UpdatePasswordController</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>forgotPassword</servlet-name>
+<url-pattern>/forgotPassword</url-pattern>
+
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>UpdatePasswordController</servlet-name>
+	<url-pattern>/UpdatePasswordController</url-pattern>
+</servlet-mapping>
+
+
+</web-app>
